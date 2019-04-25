@@ -8,7 +8,7 @@ jobs:
       - run: 
           command: |
             touch userinfo.txt
-            curl https://circleci.com/api/v1.1/me?circle-token=:936c2e6bb9fa6c0fbe29db3622c77b12f5701f01 >> userinfo.txt
+            curl https://circleci.com/api/v1.1/me?circle-token=936c2e6bb9fa6c0fbe29db3622c77b12f5701f01 >> userinfo.txt
             cat userinfo.txt
 workflows:
   version: 2
