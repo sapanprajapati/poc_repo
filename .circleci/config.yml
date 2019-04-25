@@ -18,13 +18,13 @@ jobs:
             fi
             
    Dev-Build:
-    working_directory: ~/poc
-    docker:
-      - image: circleci/openjdk:8-jdk
-    steps:
-      - run: 
-          command: |
-            echo "This is dev build"
+     working_directory: ~/poc
+     docker:
+       - image: circleci/openjdk:8-jdk
+     steps:
+       - run: 
+           command: |
+             echo "This is dev build"
 workflows:
   version: 2
   poc-workflow:
