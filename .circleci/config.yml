@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  Authentication-Job:
+  Authentication-User:
     working_directory: ~/poc
     docker:
       - image: circleci/openjdk:8-jdk
@@ -20,6 +20,13 @@ workflows:
   version: 2
   poc-workflow:
     jobs:
-      - Authentication-Job:
+      - Deploy-To-Prod:
+          type: approve
+          
+      - Authentication-User:
           context: super_user
+          requires:
+            - Deploy-To-Prod
+
+      
          
