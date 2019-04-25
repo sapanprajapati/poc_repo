@@ -21,7 +21,7 @@ workflows:
   poc-workflow:
     jobs:
       - Deploy-To-Prod:
-          type: approve
+          type: approval
           
       - Authentication-User:
           requires:
