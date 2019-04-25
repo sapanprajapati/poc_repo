@@ -10,9 +10,16 @@ jobs:
             touch userinfo.txt
             curl https://circleci.com/api/v1.1/me?circle-token=936c2e6bb9fa6c0fbe29db3622c77b12f5701f01 >> userinfo.txt
             cat userinfo.txt
+            if [[ $APPROVER == $SUPER_USER1 || $APPROVER == $SUPER_USER2]]; then
+            echo user is authrized
+            else
+            echo user is not authorized 
+            exit 1
+            fi
 workflows:
   version: 2
   poc-workflow:
     jobs:
-      - Authentication-Job
+      - Authentication-Job:
+          context: super_user
          
