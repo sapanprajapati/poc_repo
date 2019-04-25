@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  Authentication-Job:
+    working_directory: ~/poc
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - run: 
+          command: |
+            touch userinfo.txt
+            curl https://circleci.com/api/v1.1/me?circle-token=:token >> userinfo.txt
+            cat userinfo.txt
+workflows:
+  version: 2
+  poc-workflow:
+    jobs:
+      - Authentication-Job
+         
