@@ -16,13 +16,24 @@ jobs:
             echo user is not authorized 
             exit 1
             fi
+            
+   Dev-Build:
+    working_directory: ~/poc
+    docker:
+      - image: circleci/openjdk:8-jdk
+    steps:
+      - run: 
+          command: |
+            echo "This is dev build"
 workflows:
   version: 2
   poc-workflow:
     jobs:
+      - Dev-Build
       - Deploy-To-Prod:
           type: approval
-          
+          requires:
+            - Dev-Build
       - Authentication-User:
           requires:
             - Deploy-To-Prod
