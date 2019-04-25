@@ -27,6 +27,3 @@ workflows:
           requires:
             - Deploy-To-Prod
           context: super_user
-
-      
-         
