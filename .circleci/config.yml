@@ -32,7 +32,7 @@ workflows:
       - Dev-Build:
           filters:
             branches:
-              ignore: # this workflow won't run for branches matching the below regex
+              only: # this workflow won't run for branches matching the below regex
                 - hotfix.*/
       - Deploy-To-Prod:
           type: approval
