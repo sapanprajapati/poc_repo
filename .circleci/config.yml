@@ -33,7 +33,7 @@ workflows:
           filters:
             branches:
               only: # this workflow won't run for branches matching the below regex
-                - /hotfix.*/
+                - /^hotfix.*/
       - Deploy-To-Prod:
           type: approval
           requires:
