@@ -29,7 +29,7 @@ workflows:
   version: 2
   poc-workflow:
     jobs:
-      - Dev-Build
+      - Dev-Build:
           filters:
             branches:
               ignore: # this workflow won't run for branches matching the below regex
